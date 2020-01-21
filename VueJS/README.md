@@ -1,0 +1,1 @@
+docker run -d --name name -p 80:80 container_name:tag

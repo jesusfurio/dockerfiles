@@ -1,0 +1,39 @@
+version: '3'
+services:
+    fleet-backend:
+        image: image_name:tag
+        container_name: name
+        environment:
+            DB_HOST: mongodb
+            DB_PORT: 27017
+            DB_NAME: database
+            DB_USER: user
+            DB_PASS: password
+        restart: on-failure:5
+        command: bash -c "node app.js"
+        ports:
+            - 3001:3001
+        networks:
+            - app-network
+    mongodb:
+        image: mongo:latest
+        container_name: mongodb
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: mongo-root
+          MONGO_INITDB_ROOT_PASSWORD: password
+          MONGO_INITDB_DATABASE: admin
+        working_dir: /mnt/exports
+        volumes:
+          - ./data:/data/db
+        ports:
+          - 27017:27017
+        networks:
+          - app-network
+networks:
+    app-network:
+        driver: bridge
+          
+volumes:
+    data:
+          
+    
