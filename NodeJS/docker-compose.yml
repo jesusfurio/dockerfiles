@@ -1,6 +1,6 @@
 version: '3'
 services:
-    fleet-backend:
+    backend:
         image: image_name:tag
         container_name: name
         environment:
