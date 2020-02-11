@@ -22,7 +22,7 @@ services:
     restart: unless-stopped
     networks:
       - app-network
-  amigos_webserver:
+  webserver:
     image: name:webserver
     container_name: webserver
     ports:
