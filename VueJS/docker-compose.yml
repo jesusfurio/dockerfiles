@@ -1,6 +1,6 @@
 version: '3'
 services:
-   sandoz-ar-web:
+   web:
      image: image_name:tag
      container_name: name
      working_dir: /var/www
